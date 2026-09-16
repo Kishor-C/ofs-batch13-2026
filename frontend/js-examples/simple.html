@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Event Handling</h2>
+    <div>
+      <img
+        id="mainImage"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn9EBwPq-dTGRsMMeYaxJ5dZ_UoMED2KOPs8FEwPvQyA&s=10"
+        width="400"
+        height="400"
+      />
+    </div>
+    <h4>Image Gallery</h4>
+    <div onclick="updateImage(event)">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn9EBwPq-dTGRsMMeYaxJ5dZ_UoMED2KOPs8FEwPvQyA&s=10"
+        width="100"
+        height="100"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN2qo9m5EYHicUnCY4ri8FuZeGljLYj_E5CN968evrvw&s"
+        width="100"
+        height="100"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK7b6GThaapcH90H9wpl-0bLoKZzxfFSm_kIWdx9bd_g&s=10"
+        width="100"
+        height="100"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKHUSVd8dZWI0tJZhyw83aztewK6JVcj2imdL7TZGX4A&s=10"
+        width="100"
+        height="100"
+      />
+    </div>
+    <script type="text/javascript">
+      // event is a built in object, now evt accepts the event object
+      function updateImage(evt) {
+        let ele = evt.target; // access element generated event
+        let main = document.querySelector("#mainImage"); // access element i.e., 400*400 img tag
+        if (ele.tagName == "IMG") {
+          main.src = ele.src;
+        }
+      }
+    </script>
+  </body>
+</html>

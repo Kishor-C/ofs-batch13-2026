@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is a simple HTML document</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <input type="text" id="input1" />
+    <button onclick="fetchInput()">Button</button>
+    <div id="content"></div>
+    <script type="text/javascript" src="main.js"></script>
+    <script>
+      //fetchInput() to get the value from the input#input1
+      function fetchInput() {
+        // to access the value from id you must use document.getElementById("#id")
+        let element = document.getElementById("input1");
+        // to access the value in the element we must use .value
+        let val = element.value;
+        let content = document.querySelector("#content"); // using this you can access id, classname, tagname
+        // element has innerHTML to include any HTML code
+        //content.innerHTML = "<h3>Input is " + val + "</h3>";
+        // JS new feature where + is not required to concatenate
+        // it also allows you to use JS expressions like calling functions
+        content.innerHTML = `<h3>Input value is ${val.toUpperCase()}</h3>`;
+      }
+      let text = greet("Raj");
+      document.write("<h2>Text=" + text + "</h2>"); // prints in the browser body
+      //   console.log(text); // prints in the browser console
+      //   // alert, confirm, prompt methods
+      //   alert("This is an alert");
+      //   let input = prompt("Enter some input here");
+      //   // confirm returns true when you click yes/ok and false for cancel
+      //   let status = confirm("This is confirm with yes or no: " + input);
+      //   alert("Status: " + status);
+    </script>
+  </body>
+</html>
