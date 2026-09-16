@@ -1,3 +1,5 @@
+import UserRegistration from "./UserRegistration";
+
 function UserMarketPlace() {
   let multipleUsers = ["Vishnu", "Kishor", "Siddharth", "Atharv"];
   let complexUsers = [
@@ -8,8 +10,11 @@ function UserMarketPlace() {
   ];
   return (
     <div>
-      <h1>This is a User Marketplace component</h1>
-      <table border="1">
+      <h1 className="text-primary text-center">
+        This is a User Marketplace component
+      </h1>
+      <UserRegistration />
+      <table className="table">
         <thead>
           <tr>
             <th>Id</th>
