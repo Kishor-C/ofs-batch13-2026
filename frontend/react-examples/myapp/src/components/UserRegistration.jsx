@@ -1,22 +1,37 @@
+import { useState } from "react";
+
 function UserRegistration() {
-  let handleClick = () => {
-    alert("you clicked on button2");
+  // create states for name & phone
+  let [name, setName] = useState("");
+  let [phone, setPhone] = useState("");
+  let handleClick = (event) => {
+    event.preventDefault(); // prevents reloading
+    alert(`Name=${name}, Phone=${phone} must be sent to backend`);
   };
+
   return (
     <div className="container-fluid">
       <h1>User Registration Form</h1>
-      <form>
-        <button
-          className="btn btn-sm btn-primary"
-          onClick={() => alert("you clicked on button1")}
-        >
-          Button1
-        </button>
-        <br /> <br />
-        <button className="btn btn-lg btn-primary" onClick={handleClick}>
-          Button2
-        </button>
-        <br />
+      <form onSubmit={handleClick}>
+        <div>
+          <label>Enter name</label>
+          <input
+            type="text"
+            name="user"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Enter phone</label>
+          <input
+            type="number"
+            name="phone"
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
+        <div>
+          <input type="submit" value="Register" />
+        </div>
       </form>
     </div>
   );
