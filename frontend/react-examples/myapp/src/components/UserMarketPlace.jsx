@@ -1,42 +1,27 @@
+import { Link, Route, Routes } from "react-router-dom";
+import UserItem from "./UserItem";
+import UserList from "./UserList";
 import UserRegistration from "./UserRegistration";
 
 function UserMarketPlace() {
-  let multipleUsers = ["Vishnu", "Kishor", "Siddharth", "Atharv"];
-  let complexUsers = [
-    { id: 11, name: "Vishnu", age: 10 },
-    { id: 21, name: "Kishor", age: 40 },
-    { id: 31, name: "Siddharth", age: 8 },
-    { id: 41, name: "Atharv", age: 3 },
-  ];
   return (
-    <div>
+    <div className="container-fluid">
       <h1 className="text-primary text-center">
         This is a User Marketplace component
       </h1>
-      <UserRegistration />
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          {complexUsers.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.age}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <ol>
-        {multipleUsers.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ol>
+      <div>
+        <Link to="register">Registration</Link> &nbsp; /
+        <Link to="list">User List</Link> &nbsp; /
+        <Link to="search">User Search</Link> &nbsp;
+      </div>
+      <div>
+        <Routes>
+          <Route path="" element={<UserRegistration />} />
+          <Route path="register" element={<UserRegistration />} />
+          <Route path="list" element={<UserList />} />
+          <Route path="search" element={<UserItem />} />
+        </Routes>
+      </div>
     </div>
   );
 }
