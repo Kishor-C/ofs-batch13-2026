@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-standalone-replicaset
+  labels:
+    app: nginx-standalone
+spec:
+  # Modify this number to change the total number of running Pods
+  replicas: 3
+  # The selector tells the ReplicaSet which Pods it is responsible for managing
+  selector:
+    matchLabels:
+      app: nginx-standalone
+  # The template defines the blueprint for the Pods to be created
+  template:
+    metadata:
+      labels:
+        app: nginx-standalone
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-isolated-pod
+  labels:
+    app: nginx-standalone
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80 # Nginx web server inherently listens on port 80
